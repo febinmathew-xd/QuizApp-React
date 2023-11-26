@@ -2,7 +2,7 @@ import React from 'react'
 
 function ButtonLoading() {
   return (
-    <i class="fa-solid fa-spinner animate-spin"></i>
+    <i className="fa-solid fa-spinner animate-spin"></i>
   )
 }
 

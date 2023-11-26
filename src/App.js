@@ -1,13 +1,12 @@
 
 import History from './components/History';
-import Header from './components/wrappers/Header';
 import Home from './components/Home';
-import Main from './components/wrappers/Main';
-import CategoryBox from './components/box/CategoryBox';
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Question from './components/Question';
 import Loading from './components/wrappers/Loading';
+import About from './components/About';
+import Feedback from './components/Feedback';
 
 
 
@@ -19,6 +18,8 @@ function App() {
       <Route exact path='/history' element={<History/>} />
       <Route  path='/category/:id' element={<Question/>} />
       <Route exact path='/loading' element={<Loading/>} />
+      <Route exact path='/about' element={<About/>} />
+      <Route exact path='/feedback' element={<Feedback/>} />
     </Routes>
     </BrowserRouter>
     

@@ -12,25 +12,32 @@ const [sidebar, setSidebar] = useState(false);
       
       {sidebar && 
       
-      <div className='w-3/5 h-screen bg-slate-900 border-l border-cyan-500/30 absolute top-0 right-0 z-10 flex flex-col px-4 pt-8'>
-        <div onClick={()=>{setSidebar(false)}} className='flex justify-end'><i class="fa-solid fa-xmark text-3xl font-bold"></i></div>
+      <div className='w-3/5 h-screen bg-slate-900 border-l border-cyan-500/30 absolute top-0 right-0 z-10 flex flex-col px-4 pt-6'>
+
+        <div onClick={()=>{setSidebar(false)}} className='flex justify-end'>
+          <i className="fa-solid fa-xmark text-3xl font-bold"></i>
+        </div>
 
         <div className='links mt-4 flex flex-col font-semibold text-base'>
-        <Link onClick={()=>{setSidebar(false)}} className='px-2 py-4 border-b border-cyan-500' to="/">Home</Link>
-        <Link  onClick={()=>{setSidebar(false)}} className='px-2 py-4 border-b border-cyan-500' to="/history">History</Link>
-        <Link  onClick={()=>{setSidebar(false)}} className='px-2 py-4 border-b border-cyan-500'>Feedback</Link>
-        <Link  onClick={()=>{setSidebar(false)}} className='px-2 py-4 border-b border-cyan-500'>About</Link>
 
+        <Link onClick={()=>{setSidebar(false)}} className='px-2 py-4 border-b border-cyan-500' to="/">Home</Link>
+        <Link onClick={()=>{setSidebar(false)}} className='px-2 py-4 border-b border-cyan-500' to="/history">History</Link>
+        <Link onClick={()=>{setSidebar(false)}} className='px-2 py-4 border-b border-cyan-500' to="/feedback">Feedback</Link>
+        <Link onClick={()=>{setSidebar(false)}} className='px-2 py-4 border-b border-cyan-500' to="/about">About</Link>
+
+        </div>
+        <div className='p-4 text-center pt-8 text-white/50 text-sm'>
+          <h1>Made with <span className='ml-2 text-cyan-500'><i className="fa-solid fa-heart"></i></span></h1>
         </div>
        
       </div>
       }
 
       <Link to="/">
-      <i class="fa-solid fa-b text-xl bg-cyan-900/50 rounded-lg py-2 px-4"></i>
+      <i className="fa-solid fa-b text-xl bg-cyan-900/50 rounded-lg py-2 px-4"></i>
       </Link>
       
-      <i class="fa-solid fa-bars text-3xl" onClick={()=>{setSidebar(true)}}></i>
+      <i className="fa-solid fa-bars text-3xl" onClick={()=>{setSidebar(true)}}></i>
       
      {children}
     </header>
