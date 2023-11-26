@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+
+import History from './components/History';
+import Header from './components/wrappers/Header';
+import Home from './components/Home';
+import Main from './components/wrappers/Main';
+import CategoryBox from './components/box/CategoryBox';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Question from './components/Question';
+import Loading from './components/wrappers/Loading';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <Routes>
+      <Route exact path="/" element={<Home/>} />
+      <Route exact path='/history' element={<History/>} />
+      <Route  path='/category/:id' element={<Question/>} />
+      <Route exact path='/loading' element={<Loading/>} />
+    </Routes>
+    </BrowserRouter>
+    
   );
 }
 
 export default App;
+
+
