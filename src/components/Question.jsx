@@ -4,32 +4,57 @@ import Main from './wrappers/Main'
 import Title from './wrappers/Title'
 import OptionBox from './box/OptionBox'
 import Button from './box/Button'
-import { useParams } from 'react-router-dom'
+/* import { useParams } from 'react-router-dom' */
 import {data } from '../data/data'
 
 function Question() {
-  const {id} = useParams();
+  /* const {id} = useParams(); */
   const questions = data.questions;
-  console.log(questions.length);
+  
   const [questionNumber, setQuestionNumber] = useState(0);
   const [optedAnswer, setOptedAnswer] = useState(null);
-  const [correct, setCorrectAnswer] = useState(null);
-  
+  const [correctAnswer, setCorrectAnswer] = useState(null);
+  const [buttonView, setButtonView] = useState("submit");
+
   console.log(optedAnswer);
+  console.log(correctAnswer);
+
+
 
   
 
-  const handleClick = () => {
+  const next = () => {
     if(questionNumber >= questions.length-1)  return;
+    if(correctAnswer === null) return;
     setQuestionNumber((prevQuestionNumber) =>prevQuestionNumber+1 );
     
     console.log("button clicked");
+    setCorrectAnswer(null);
+    setOptedAnswer(null);
+    setButtonView("submit");
+
 
   
 
   };
 
+
   const question = questions[questionNumber];
+
+  const submit = () => {
+
+    if(optedAnswer === null) return;
+    
+    for(let i =0; i< question.options.length; i++){
+      if (question.options[i].isCorrect){
+        setCorrectAnswer(question.options[i]);
+      };
+    };
+    
+    setButtonView("next");
+    console.log("submit clicked");
+
+  };
 
 
 
@@ -51,13 +76,14 @@ function Question() {
 
 
           {question.options.map((option, index)=>(
-            <OptionBox key={option.id} selected={optedAnswer} optAns={setOptedAnswer} option={option} count={index} />
+            <OptionBox key={option.id} selected={optedAnswer} correctAnswer={correctAnswer} optAns={setOptedAnswer} option={option} count={index} />
           ))}
           
         </div>
         <div className="btn flex justify-end py-6 ">
-
-        <Button buttonLabel={"Next"} onClick={handleClick} />
+          {buttonView === "submit" ? <Button buttonLabel={"Submit"} onClick={submit}/> : <Button buttonLabel={"Next"} onClick={next} /> }
+         
+        
         </div>
         
     </Main>
