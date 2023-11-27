@@ -10,8 +10,12 @@ import {data } from '../data/data'
 function Question() {
   const {id} = useParams();
   const questions = data.questions;
-  console.log(questions.length)
-  const [questionNumber, setQuestionNumber] = useState(0)
+  console.log(questions.length);
+  const [questionNumber, setQuestionNumber] = useState(0);
+  const [optedAnswer, setOptedAnswer] = useState(null);
+  const [correct, setCorrectAnswer] = useState(null);
+  
+  console.log(optedAnswer);
 
   
 
@@ -44,13 +48,16 @@ function Question() {
         </div>
         </div>
         <div className='mt-12'>
-          <OptionBox option={question.options[0]} count={"a"}/>
-          <OptionBox option={question.options[1]} count={"b"}/>
-          <OptionBox option={question.options[2]} count={"c"}/>
-          <OptionBox option={question.options[3]} count={"d"}/>
+
+
+          {question.options.map((option, index)=>(
+            <OptionBox key={option.id} selected={optedAnswer} optAns={setOptedAnswer} option={option} count={index} />
+          ))}
+          
         </div>
         <div className="btn flex justify-end py-6 ">
-        <Button onClick={handleClick} />
+
+        <Button buttonLabel={"Next"} onClick={handleClick} />
         </div>
         
     </Main>

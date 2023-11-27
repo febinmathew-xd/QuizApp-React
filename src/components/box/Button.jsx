@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Button({onClick}) {
+function Button({onClick, buttonLabel}) {
   return (
-    <button onClick={onClick} className='bg-cyan-500 rounded-md w-24 py-2 text-white/80 font-bold'>Submit</button>
+    <button onClick={onClick} className='bg-cyan-500 rounded-md w-24 py-2 text-white/80 font-bold'>{buttonLabel}</button>
   )
 }
 
