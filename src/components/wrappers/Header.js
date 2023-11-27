@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link ,NavLink} from 'react-router-dom'
 
 function Header({children}) {
 
@@ -20,10 +20,10 @@ const [sidebar, setSidebar] = useState(false);
 
         <div className='links mt-4 flex flex-col font-semibold text-base'>
 
-        <Link onClick={()=>{setSidebar(false)}} className='px-2 py-4 border-b border-cyan-500' to="/">Home</Link>
-        <Link onClick={()=>{setSidebar(false)}} className='px-2 py-4 border-b border-cyan-500' to="/history">History</Link>
-        <Link onClick={()=>{setSidebar(false)}} className='px-2 py-4 border-b border-cyan-500' to="/feedback">Feedback</Link>
-        <Link onClick={()=>{setSidebar(false)}} className='px-2 py-4 border-b border-cyan-500' to="/about">About</Link>
+        <NavLink  onClick={()=>{setSidebar(false)}} className='px-2 py-4 border-b border-cyan-500' to="/">Home</NavLink>
+        <NavLink  onClick={()=>{setSidebar(false)}} className='px-2 py-4 border-b border-cyan-500' to="/history">History</NavLink>
+        <NavLink  onClick={()=>{setSidebar(false)}} className='px-2 py-4 border-b border-cyan-500' to="/feedback">Feedback</NavLink>
+        <NavLink  onClick={()=>{setSidebar(false)}} className='px-2 py-4 border-b border-cyan-500' to="/about">About</NavLink>
 
         </div>
         <div className='p-4 text-center pt-8 text-white/50 text-sm'>
@@ -34,7 +34,7 @@ const [sidebar, setSidebar] = useState(false);
       }
 
       <Link to="/">
-      <i className="fa-solid fa-b text-xl bg-cyan-900/50 rounded-lg py-2 px-4"></i>
+      <i className="fa-solid fa-b text-base bg-cyan-900/50 rounded-lg py-2 px-4"></i>
       </Link>
       
       <i className="fa-solid fa-bars text-3xl" onClick={()=>{setSidebar(true)}}></i>

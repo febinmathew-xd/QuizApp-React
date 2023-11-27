@@ -28,7 +28,7 @@ function Question() {
     if(correctAnswer === null) return;
     setQuestionNumber((prevQuestionNumber) =>prevQuestionNumber+1 );
     
-    console.log("button clicked");
+    console.log("Next clicked");
     setCorrectAnswer(null);
     setOptedAnswer(null);
     setButtonView("submit");
