@@ -81,7 +81,13 @@ function Question() {
           
         </div>
         <div className="btn flex justify-end py-6 ">
-          {buttonView === "submit" ? <Button buttonLabel={"Submit"} onClick={submit}/> : <Button buttonLabel={"Next"} onClick={next} /> }
+          {
+          
+            buttonView === "submit" ? <Button buttonLabel={"Submit"} onClick={submit}/> 
+          : buttonView === "next" ? <Button buttonLabel={"Next"} onClick={next} />  
+          : <Button buttonLabel={"Finish"}/>
+          
+          }
          
         
         </div>
