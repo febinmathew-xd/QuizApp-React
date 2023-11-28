@@ -11,9 +11,13 @@ function CategoryBox({data,btnLabel}) {
       </div>
       <div>
         <button className='bg-cyan-500 rounded-md px-4 py-2 text-white/90 text-sm opacity-90 font-bold '>
+          {
+            btnLabel ? <Link to={`/answers/${data.id}`}>View</Link> :
         <Link  to={`/category/${data.id}`}>
-        {btnLabel ? btnLabel : "Start"}
+          Start
         </Link>
+
+         }
         
         </button>
         
