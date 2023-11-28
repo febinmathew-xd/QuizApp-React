@@ -23,9 +23,9 @@ export const data = {
         },
 
         {id:2, 
-        question: "Who is the Prime minister of india?",
+        question: "Who is the Prime minister of indiannjeotjt tjer terj tjretor jtr trjt  rpotjrt j trj  rj rhr rhjro rpojhr  rjr h hjr hr?",
         options : [
-            {id:1, title: "Febin", isCorrect: false},
+            {id:1, title: "Febin ji", isCorrect: false},
             {id:2, title: "Kummanam ji", isCorrect: false},
             {id:3, title: "Modi ji", isCorrect: true},
             {id:4, title: "Surendran ji", isCorrect: false},
