@@ -7,6 +7,7 @@ import Question from './components/Question';
 import Loading from './components/wrappers/Loading';
 import About from './components/About';
 import Feedback from './components/Feedback';
+import LongQsView from './components/LongQsView';
 
 
 
@@ -20,6 +21,7 @@ function App() {
       <Route exact path='/loading' element={<Loading/>} />
       <Route exact path='/about' element={<About/>} />
       <Route exact path='/feedback' element={<Feedback/>} />
+      <Route path='/answers/:pk' element={<LongQsView/>} />
     </Routes>
     </BrowserRouter>
     
