@@ -8,6 +8,7 @@ import Loading from './components/wrappers/Loading';
 import About from './components/About';
 import Feedback from './components/Feedback';
 import LongQsView from './components/LongQsView';
+import Empty from './components/wrappers/Empty';
 
 
 
@@ -21,7 +22,8 @@ function App() {
       <Route exact path='/loading' element={<Loading/>} />
       <Route exact path='/about' element={<About/>} />
       <Route exact path='/feedback' element={<Feedback/>} />
-      <Route path='/answers/:pk' element={<LongQsView/>} />
+      <Route path='/answers/:id' element={<LongQsView/>} />
+      <Route path='/empty' element= {<Empty/>} />
     </Routes>
     </BrowserRouter>
     

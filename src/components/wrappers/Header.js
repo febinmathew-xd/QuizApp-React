@@ -8,7 +8,7 @@ const [sidebar, setSidebar] = useState(false);
 
 
   return (
-    <header className='w-full h-16 bg-slate-900 border-b border-cyan-600 text-cyan-600 flex items-center justify-between px-6 relative '>
+    <header className='w-full h-16  bg-slate-900 border-b border-cyan-600 text-cyan-600 flex items-center justify-between px-6 relative '>
       
       {sidebar && 
       
@@ -20,7 +20,7 @@ const [sidebar, setSidebar] = useState(false);
 
         <div className='links mt-4 flex flex-col font-semibold text-base'>
 
-        <NavLink  onClick={()=>{setSidebar(false)}} className='px-2 py-4 border-b border-cyan-500' to="/">Home</NavLink>
+        <NavLink  onClick={()=>{setSidebar(false)}} className='px-2 py-4 border-b border-cyan-500' to="/">Active</NavLink>
         <NavLink  onClick={()=>{setSidebar(false)}} className='px-2 py-4 border-b border-cyan-500' to="/history">History</NavLink>
         <NavLink  onClick={()=>{setSidebar(false)}} className='px-2 py-4 border-b border-cyan-500' to="/feedback">Feedback</NavLink>
         <NavLink  onClick={()=>{setSidebar(false)}} className='px-2 py-4 border-b border-cyan-500' to="/about">About</NavLink>
