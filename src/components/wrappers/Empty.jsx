@@ -1,6 +1,5 @@
 import React from 'react'
 import Main from './Main'
-import Header from './Header'
 import Title from './Title'
 
 function Empty({title}) {

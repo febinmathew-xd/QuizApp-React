@@ -1,13 +1,13 @@
 
-import History from './components/History';
-import Home from './components/Home';
+import History from './components/pages/History';
+import Home from './components/pages/Home';
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Question from './components/Question';
+import Question from './components/pages/Question';
 import Loading from './components/wrappers/Loading';
-import About from './components/About';
-import Feedback from './components/Feedback';
-import LongQsView from './components/LongQsView';
+import About from './components/pages/About';
+import Feedback from './components/pages/Feedback';
+import LongQsView from './components/pages/LongQsView';
 import Empty from './components/wrappers/Empty';
 
 

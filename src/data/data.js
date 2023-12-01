@@ -1,64 +1,36 @@
-export const data = {
-    category: [
-        {id:1, name:"sociology 01"},
-        {id:2, name:"sociology 02"},
-        {id:3, name:"sociology 03"},
-        {id:4, name:"sociology 04"},
-        {id:5, name:"sociology 05"},
-        {id:6, name:"sociology 06"},
-        {id:7, name:"sociology 07"},
-        {id:8, name:"sociology "},
-    ],
-    questions: [
-        {id:1, 
-        question: "Who is the father of sociology?",
-        options : [
-            {id:1, title: "Febin", isCorrect: true},
-            {id:2, title: "Bhagya", isCorrect: false},
-            {id:3, title: "Ganga", isCorrect: false},
-            {id:4, title: "Peeli", isCorrect: false},
+export const quotes = [
+    'The only way to do great work is to love what you do',
 
-        ],
-        isAnswered: false,
-        },
+    'Your education is a dress rehearsal for a life that is yours to lead',
 
-        {id:2, 
-        question: "Who is the Prime minister of indiannjeotjt tjer terj tjretor jtr trjt  rpotjrt j trj  rj rhr rhjro rpojhr  rjr h hjr hr?",
-        options : [
-            {id:1, title: "Febin ji", isCorrect: false},
-            {id:2, title: "Kummanam ji", isCorrect: false},
-            {id:3, title: "Modi ji", isCorrect: true},
-            {id:4, title: "Surendran ji", isCorrect: false},
+    'The future belongs to those who believe in the beauty of their dreams',
 
-        ],
-        isAnswered: false,
-        },
-        
-        {id:3, 
-        question: "What year is now?",
-        options : [
-            {id:1, title: "2022", isCorrect: false},
-            {id:2, title: "2023", isCorrect: true},
-            {id:3, title: "2025", isCorrect: false},
-            {id:4, title: "2003", isCorrect: false},
+    "Don't watch the clock; do what it does. Keep going",
 
-        ],
-        isAnswered: false,
-        },
+    "Success is not final, failure is not fatal: It is the courage to continue that counts",
 
-        {id:4, 
-        question: "Who won the cricket odi world cup?",
-        options : [
-            {id:1, title: "South Africa", isCorrect: false},
-            {id:2, title: "England", isCorrect: false},
-            {id:3, title: "India", isCorrect: false},
-            {id:4, title: "Australia", isCorrect: true},
+    "Believe you can and you're halfway there",
 
-        ],
-        isAnswered: false,
-        },
-    ]
+    "Strive for progress, not perfection",
 
+    "The only way to achieve the impossible is to believe it is possible",
 
+    "Success doesn't come to you; you go to it",
 
-}
+    "Opportunities don't happen. You create them",
+
+    "It's not about how bad you want it; it's about how hard you're willing to work for it",
+
+    "Start where you are. Use what you have. Do what you can." ,
+
+    "Work hard in silence, let success be your noise." ,
+
+    "Make each day your masterpiece." ,
+
+    "Learn as if you will live forever, live like you will die tomorrow." ,
+
+    "You are stronger than you think." ,
+
+    "Do it with passion or not at all.",
+
+]

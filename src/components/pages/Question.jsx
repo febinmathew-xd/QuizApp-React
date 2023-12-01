@@ -1,18 +1,21 @@
-import React, { useState } from 'react'
-import Header from './wrappers/Header'
-import Main from './wrappers/Main'
-import Title from './wrappers/Title'
-import OptionBox from './box/OptionBox'
-import Button from './box/Button'
+import React, { useState, useEffect } from 'react'
+import Header from '../wrappers/Header'
+import Main from '../wrappers/Main'
+import Title from '../wrappers/Title'
+import OptionBox from '../box/OptionBox'
+import Button from '../box/Button'
 import { useParams } from 'react-router-dom'
-
-import { useEffect } from 'react'
 import axios from 'axios'
-import Loading from './wrappers/Loading'
-import Result from './box/Result'
+import Loading from '../wrappers/Loading'
+import Result from '../box/Result'
+import Error from '../box/Error'
 
 function Question() {
   const {id} = useParams();
+
+
+
+
   
 
   
@@ -26,8 +29,10 @@ function Question() {
   const [buttonView, setButtonView] = useState("submit");
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const [question, setQuestion] = useState(null);
   const [result, setResult] = useState(false);
+  const [refresh, setRefresh] = useState(0);
 
  
 
@@ -37,17 +42,30 @@ function Question() {
     axios.get(url)
     .then(response=>{
       setQuestions(response.data);
-      setQuestion(response.data[questionNumber])
+      setQuestion(response.data[questionNumber]);
+      setError(false);
       console.log("questions: ", response.data);
     })
     .catch(err=>{
+      setError(true);
       console.log(err)
     })
     .finally(()=>{
       setLoading(false)
     })
 
-  },[]);
+  },[refresh]);
+
+
+  const handleRefresh = () => {
+
+    setRefresh(prev=>prev+1);
+    setQuestionNumber(0);
+    setOptedAnswer(null);
+    setCorrectAnswer(null);
+    setButtonView("submit");
+
+  };
 
 
 
@@ -111,8 +129,10 @@ const finish = ()=> {
   .then(response=>{
     console.log("patch response",response.data);
     setResult(true);
+    setError(false);
   })
   .catch(err=>{
+    setError(true);
     console.log(err)
   })
   .finally(()=>{
@@ -131,6 +151,8 @@ const finish = ()=> {
     <Header/>
 
     {loading? <Loading/> :
+
+    error ? <Error handleClick={handleRefresh}/> :
 
     result ? <Result title={questions[0]?.category.title} id={id}/> :
     

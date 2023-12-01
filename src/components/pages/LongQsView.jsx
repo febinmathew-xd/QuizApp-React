@@ -1,13 +1,12 @@
-import React from 'react'
-import Header from './wrappers/Header'
-import Main from './wrappers/Main'
-import Title from './wrappers/Title'
+import React, {useState, useEffect} from 'react'
+import Header from '../wrappers/Header'
+import Main from '../wrappers/Main'
+import Title from '../wrappers/Title'
 import { useParams } from 'react-router-dom'
-import AnswerBox from './box/AnswerBox'
-import { useState } from 'react'
-import { useEffect } from 'react'
+import AnswerBox from '../box/AnswerBox'
 import axios from 'axios'
-import Loading from './wrappers/Loading'
+import Loading from '../wrappers/Loading'
+import Error from '../box/Error'
 
 function LongQsView() {
 
@@ -15,6 +14,9 @@ function LongQsView() {
 
   const [loading, setLoading] = useState(false);
   const [questions, setQuestions] = useState([]);
+  const [error, setError] = useState(false);
+  const [refresh, setRefresh] = useState(0);
+
   const url = `http://127.0.0.1:8000/api/questions/${id}/`
 
   useEffect(()=>{
@@ -23,9 +25,11 @@ function LongQsView() {
     axios.get(url)
     .then(response=>{
       setQuestions(response.data);
+      setError(false);
       console.log(response.data);
     })
     .catch(err=>{
+      setError(true);
       console.log(err);
 
     })
@@ -33,12 +37,23 @@ function LongQsView() {
       setLoading(false);
     })
 
-  }, []);
+  }, [refresh]);
+
+  const handleRefresh = () => {
+
+    setRefresh(prev=>prev+1);
+
+  };
 
   return (
     <>
     <Header/>
     {loading ? <Loading/> :
+
+    error ? <Error handleClick={handleRefresh}/> :
+
+
+
     <Main paddingX={4}>
       
         <Title title={questions[0]?.category.title}/>

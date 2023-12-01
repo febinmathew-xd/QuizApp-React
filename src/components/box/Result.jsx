@@ -1,8 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Main from '../wrappers/Main'
 import { Link } from 'react-router-dom'
+import { quotes } from '../../data/data'
+import Cookies from 'js-cookie'
 
 function Result({id, title}) {
+
+    const savedIndex = parseInt(Cookies.get('index')) || 0;
+
+  // State to keep track of the current index
+  const [index, setIndex] = useState(savedIndex);
+
+  // Update the cookie value after the component renders
+  useEffect(() => {
+    // Increment the index sequentially
+    const newIndex = (index + 1) % quotes.length;
+
+    // Update the state and cookie with the new index
+    setIndex(newIndex);
+    Cookies.set('index', String(newIndex), { expires: 30 });
+  }, []); 
+
+
   return (
     <Main paddingX={6}>
         <div className='w-full h-[calc(100vh-90px)] pb-[200px] flex items-center'>
@@ -10,9 +29,9 @@ function Result({id, title}) {
                 <div className="quote text-center bg-sky-900 p-4 rounded-lg w-full">
                 
                 
-                <h1 className='font-bold text-sm text-white/60'><span><i className="fa-solid fa-quote-left text-cyan-500 mr-4 text-sm"></i> </span>
-                Time and tide wait for none.You should study well bhagyaYou should study well bhagya
-                <span><i className="fa-solid fa-quote-right text-cyan-500 ml-4 text-sm"></i></span>
+                <h1 className='font-bold text-sm text-white/60'><span><i className="fa-solid fa-quote-left text-cyan-500 mr-3 text-sm"></i> </span>
+                { quotes[index] }
+                <span><i className="fa-solid fa-quote-right text-cyan-500 ml-3 text-sm"></i></span>
                 </h1>
                 
                 </div>
