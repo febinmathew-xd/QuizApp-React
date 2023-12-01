@@ -20,7 +20,7 @@ export default function Home() {
   useEffect(()=> {
     setLoading(true);
 
-    axios.get("http://127.0.0.1:8000/api/category/active/")
+    axios.get("https://bhagus.pythonanywhere.com/api/category/active/")
     .then(response=>{
 
       console.log(response.data)

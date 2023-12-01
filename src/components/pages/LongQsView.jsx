@@ -17,7 +17,7 @@ function LongQsView() {
   const [error, setError] = useState(false);
   const [refresh, setRefresh] = useState(0);
 
-  const url = `http://127.0.0.1:8000/api/questions/${id}/`
+  const url = `https://bhagus.pythonanywhere.com/api/questions/${id}/`
 
   useEffect(()=>{
     setLoading(true);

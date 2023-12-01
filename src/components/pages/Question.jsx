@@ -20,7 +20,7 @@ function Question() {
 
   
 
-  const url = `http://127.0.0.1:8000/api/questions/${id}/`
+  const url = `https://bhagus.pythonanywhere.com/api/questions/${id}/`
   
   
   const [questionNumber, setQuestionNumber] = useState(0);
@@ -125,7 +125,7 @@ console.log("quest",question)
 const finish = ()=> {
   setLoading(true);
 
-  axios.patch(`http://127.0.0.1:8000/api/category/set/inactive/${id}/`, {is_active: false})
+  axios.patch(`https://bhagus.pythonanywhere.com/api/category/set/inactive/${id}/`, {is_active: false})
   .then(response=>{
     console.log("patch response",response.data);
     setResult(true);

@@ -21,7 +21,7 @@ function History() {
   useEffect(()=> {
     setLoading(true);
 
-    axios.get("http://127.0.0.1:8000/api/category/history/")
+    axios.get("https://bhagus.pythonanywhere.com/api/category/history/")
     .then(response=>{
 
       console.log(response.data)
